@@ -14,9 +14,12 @@
         Can be tested for speed using CSCI251ProjOne.java
  */
 
-// TODO function descriptions, preconditions, postconditions
-
 public class MySort {
+
+    // Precondition: arr has been initialized
+    // Postcondition: arr has been sorted
+    // Uses insertion sort to sort the array
+    // Runtime =  O(N^2)
     public static void insertSort(int[] arr) {
         int i, j;   // Loop index variables, declared here for speed
         int temp;   // Temporarily holds swap data
@@ -39,6 +42,10 @@ public class MySort {
         }
     }
 
+    // Precondition: arr has been initialized
+    // Postcondition: arr has been sorted
+    // Uses selection sort to sort the array
+    // Runtime =  O(N^2)
     public static void selectSort(int [] arr) {
         int i, j;   // Index variables; faster declared here
         int n = arr.length; // Holds the length of the array
@@ -64,18 +71,29 @@ public class MySort {
         }
     }
 
+    // Precondition: arr has been initialized
+    // Postcondition: arr has been sorted
+    // Uses quick sort to sort the array
+    // Runtime =  O(N log N))
+    // Absolute Worst-Case Runtime (unusual) = O(N^2)
     public static void quickSort(int [] arr) {
-        System.out.println("You've reached quickSort!");
         quickSortRecursive(arr, 0, arr.length - 1);
     }
 
+    // Precondition: arr has been initialized
+    // Postcondition: arr has been sorted
+    // Uses merge sort to sort the array
+    // Runtime =  O(N log N)
+    // Memory use:  Requires O(N) additional memory for sorting routines
     public static void mergeSort(int [] arr) {
-        System.out.println("You've reached mergeSort!");
         mergeSortRecursive(arr, 0, arr.length - 1);
     }
 
-    /** private methods */
+    // PRIVATE METHODS
 
+    // Precondition:    arr has been initialized; start, middle, end are all valid positions for arr
+    // Postcondition:   arr between start and end has been merged
+    // Merges the left and right partitions for mergeSort
     private static void merge(int [] arr, int start, int middle, int end) {
         int mergedSize = end - start + 1;           // Size of merged partition
         int mergePos = 0;                           // Position to insert merged number
@@ -116,6 +134,9 @@ public class MySort {
         }
     }
 
+    // Precondition:    arr has been initialized; begin and end are valid positions for arr
+    // Postcondition:   arr between begin and end has been sorted
+    // Recursively sorts the array between begin and end
     private static void mergeSortRecursive(int [] arr, int begin, int end) {
         int mid;    // Stores the midpoint of the array
 
@@ -132,9 +153,10 @@ public class MySort {
         }
     }
 
-    // Returnslocation of last element in low partition
+    // Precondition:    arr has been initialized; begin and end are valid positions for arr
+    // Postcondition:   Returns location of last element in low partition for quickSortRecursive
     private static int pivot(int [] arr, int begin, int end) {
-        int temp = 0; // Swap temp storage
+        int temp; // Swap temp storage
         boolean done = false;  // Tracks whether function has finished partitioning the data
 
         // Pick middle element as pivot
@@ -176,6 +198,9 @@ public class MySort {
         return h;
     }
 
+    // Precondition: arr has been initialized; begin and end are valid positions for array
+    // Postcondition: arr between begin and end has been sorted
+    // Recursively sorts the array between begin and end
     private static void quickSortRecursive(int [] arr, int begin, int end) {
         // Base Case:  If there are 1 or zero elements to sort,
         //              partition is already sorted
