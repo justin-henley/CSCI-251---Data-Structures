@@ -16,6 +16,7 @@ public class MyQueue<E>
      */
     public MyQueue()
     {
+        tail = 0;
     }
     
     /**
@@ -24,7 +25,7 @@ public class MyQueue<E>
      */
     public boolean isEmpty()
     {
-       
+       return list.isEmpty();
     }
     
     /**
@@ -33,7 +34,7 @@ public class MyQueue<E>
      */
     public int size()
     {
-        
+        return list.size();
     }
     
     /**
@@ -42,7 +43,9 @@ public class MyQueue<E>
      */
     public E peek()
     {
-        
+        if (list.isEmpty())
+            return null;
+        return list.get(0);
     }
     
     /**
@@ -50,7 +53,10 @@ public class MyQueue<E>
      */
     public void pop()
     {
-       
+       if (list.isEmpty())
+           return;
+       list.remove(0);
+       tail--;
     }
     
     /**
@@ -58,6 +64,11 @@ public class MyQueue<E>
      */
     public void push(E item)
     {
-        
+        // If the list is empty before pushing, tail should still point to 0
+        if (!list.isEmpty())
+            tail++;
+        // Append the item at the back of the queue array
+        list.add(item);
+
     }
 }

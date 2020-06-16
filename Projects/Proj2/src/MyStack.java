@@ -18,7 +18,7 @@ public class MyStack<E>
      */
     public MyStack()
     {
-        
+        top = 0;
     }
     
     /**
@@ -26,7 +26,11 @@ public class MyStack<E>
      */
     public void push(E item)
     {
-        
+        // If list is empty, top should still be 0 after appending
+        if (!list.isEmpty())
+            top++;
+        // Append the element to the end of the array
+        list.add(item);
     }
     
     /**
@@ -35,7 +39,7 @@ public class MyStack<E>
      */
     public boolean isEmpty()
     {
-        
+        return list.isEmpty();
     }
     
     /**
@@ -43,7 +47,7 @@ public class MyStack<E>
      */
     public E peek()
     {
-       
+       return list.get(top);
     }
     
     /**
@@ -51,7 +55,14 @@ public class MyStack<E>
      */
     public void pop()
     {
-       
+        // If stack is empty, nothing happens
+        if (isEmpty())
+            return;
+        // Otherwise, remove the top element
+        list.remove(top);
+        // Decrement top if list is not now empty
+        if (top != 0)
+            top--;
     }
     
     /**
@@ -60,6 +71,6 @@ public class MyStack<E>
      */
     public int size()
     {
-
+        return list.size();
     }
 }

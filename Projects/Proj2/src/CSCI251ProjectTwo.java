@@ -27,7 +27,7 @@ public class CSCI251ProjectTwo
     }
     
     /**
-     * isPalindrom returns true if the given String is a palindrom
+     * isPalindrom returns true if the given String is a palindrome
      * @
      */
     public static boolean isPalindrome(String sentence)
