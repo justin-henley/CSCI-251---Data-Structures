@@ -1,4 +1,4 @@
-/**
+/** todo comments
  * class MyStack: A stack class implemented by using ArrayList
  * All stack elements are stored in an ArrayList. The top element
  * has index top
@@ -13,7 +13,7 @@ public class MyStack<E>
     private ArrayList<E> list; // used to store elements in stack
     private int top; // the index of top element
     
-    /**
+    /** todo comments
      * constructor construct an empty stack
      */
     public MyStack()
@@ -21,7 +21,7 @@ public class MyStack<E>
         top = 0;
     }
     
-    /**
+    /** todo comments
      * push push a given element on the top of the stack
      */
     public void push(E item)
@@ -33,7 +33,7 @@ public class MyStack<E>
         list.add(item);
     }
     
-    /**
+    /** todo comments
      * isEmpty return true if the stack is empty; false otherwise
      * @return true if the stack is empty; false otherwise
      */
@@ -42,7 +42,7 @@ public class MyStack<E>
         return list.isEmpty();
     }
     
-    /**
+    /** todo comments
      * peek Return the top element
      */
     public E peek()
@@ -50,7 +50,7 @@ public class MyStack<E>
        return list.get(top);
     }
     
-    /**
+    /**  todo comments
      * pop Remove the top element from the stack. If the stack is empty,nothing happen
      */
     public void pop()
@@ -65,7 +65,7 @@ public class MyStack<E>
             top--;
     }
     
-    /**
+    /** todo comments
      * size return the size of the stack
      * @return number of elements in stack
      */

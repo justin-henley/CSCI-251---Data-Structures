@@ -1,4 +1,4 @@
-/**
+/** todo comments
  * class MyQueue implemented using ArrayList. The index 0 element is the front of the queue
  * The last element of the queue has index tail
  * @author Your Name
@@ -11,7 +11,7 @@ public class MyQueue<E>
     private ArrayList<E> list; // hold the elements in queue
     private int tail; // index of the last element in queue
     
-    /**
+    /** todo comments
      * constructor construct an empty queue
      */
     public MyQueue()
@@ -19,7 +19,7 @@ public class MyQueue<E>
         tail = 0;
     }
     
-    /**
+    /** todo comments
      * isEmpty return true if the queue is empty; false otherwise
      * @return true if the queue is empty; false otherwise
      */
@@ -28,7 +28,7 @@ public class MyQueue<E>
        return list.isEmpty();
     }
     
-    /**
+    /** todo comments
      * size return the size of the queue
      * @return the number of elements in queue
      */
@@ -37,7 +37,7 @@ public class MyQueue<E>
         return list.size();
     }
     
-    /**
+    /** todo comments
      * peek return the front element of the queue
      * @return the front element of the queue. If the queue is empty, return null
      */
@@ -48,7 +48,7 @@ public class MyQueue<E>
         return list.get(0);
     }
     
-    /**
+    /** todo comments
      * pop remove the front element of the queue
      */
     public void pop()
@@ -59,7 +59,7 @@ public class MyQueue<E>
        tail--;
     }
     
-    /**
+    /** todo comments
      * push push a new element to the queue
      */
     public void push(E item)

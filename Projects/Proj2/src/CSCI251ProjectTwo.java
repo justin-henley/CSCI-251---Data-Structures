@@ -27,22 +27,22 @@ public class CSCI251ProjectTwo
     }
     
     /**
-     * isPalindrom returns true if the given String is a palindrome
+     * isPalindrome returns true if the given String is a palindrome
      * @
      */
     public static boolean isPalindrome(String sentence)
     {
-        // declare a MyStack s
-        // declare a MyQueue q
+        // declare a MyStack s todo
+        // declare a MyQueue q todo
         for(int i = 0; i < sentence.length(); i++)
         {
-            // if ith character in sentence is a letter
-                // convert to upper case and push it into s and q
+            // if ith character in sentence is a letter todo
+                // convert to upper case and push it into s and q todo
         }
         while(!s.isEmpty()){
-            // if the front of the queue not match the top of stack
-                // return false
-            // pop out top of the stack and front of the queue
+            // if the front of the queue not match the top of stack todo
+                // return false todo
+            // pop out top of the stack and front of the queue todo
         }
         return true;
     }
