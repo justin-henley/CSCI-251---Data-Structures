@@ -1,10 +1,10 @@
-/** todo comments
+/**
  * class MyStack: A stack class implemented by using ArrayList
  * All stack elements are stored in an ArrayList. The top element
  * has index top
  * 
- * @author Your Name
- * @version Date
+ * @author Justin Henley
+ * @version 2020-06-16
  */
 import java.util.ArrayList;
 
@@ -13,27 +13,29 @@ public class MyStack<E>
     private ArrayList<E> list; // used to store elements in stack
     private int top; // the index of top element
     
-    /** todo comments
+    /**
      * constructor construct an empty stack
      */
     public MyStack()
     {
-        top = 0;
+        // List points to a new empty ArrayList of type E
+        list = new ArrayList<>();
+        // Top = -1 is an empty stack; all functions must check isEmpty() before using top index
+        top = -1;
     }
     
-    /** todo comments
+    /**
      * push push a given element on the top of the stack
      */
     public void push(E item)
     {
-        // If list is empty, top should still be 0 after appending
-        if (!list.isEmpty())
-            top++;
         // Append the element to the end of the array
         list.add(item);
+        // Increment top
+        top++;
     }
     
-    /** todo comments
+    /**
      * isEmpty return true if the stack is empty; false otherwise
      * @return true if the stack is empty; false otherwise
      */
@@ -42,15 +44,18 @@ public class MyStack<E>
         return list.isEmpty();
     }
     
-    /** todo comments
+    /**
      * peek Return the top element
+     * Precondition: The stack is not empty
+     * Should be checked with isEmpty() before calling peek(),
+     * calling peek() on an empty stack will cause an error
      */
     public E peek()
     {
        return list.get(top);
     }
     
-    /**  todo comments
+    /**
      * pop Remove the top element from the stack. If the stack is empty,nothing happen
      */
     public void pop()
@@ -60,12 +65,11 @@ public class MyStack<E>
             return;
         // Otherwise, remove the top element
         list.remove(top);
-        // Decrement top if list is not now empty
-        if (top != 0)
-            top--;
+        // Decrement top
+        top--;
     }
     
-    /** todo comments
+    /**
      * size return the size of the stack
      * @return number of elements in stack
      */
