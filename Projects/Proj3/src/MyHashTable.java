@@ -17,14 +17,16 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @param tableSize The number of Buckets of the table
      */
     public MyHashTable(int tableSize){
-        // TODO: 2020-06-29  
+        // TODO: 2020-06-29
+        table = new ArrayList<MyHashEntry<K, V>>(tableSize);
     }
     
     /**
      * constructor. Construct an empty MyHashTable with capacity 10 buckets
      */
     public MyHashTable(){
-        // TODO: 2020-06-29  
+        // TODO: 2020-06-29
+        table = new ArrayList<MyHashEntry<K, V>>(10);
     }
     
     /**
@@ -85,6 +87,22 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @return a String representation of the table
      */
     public String toString(){
-        // TODO: 2020-06-29  
+        // TODO: 2020-06-29
+
+        // A string to hold whole list, newline between entries
+        String listString = "";
+
+        // Loop over ArrayList
+        for (MyHashEntry bucket : table) {
+            // Check if bucket is empty
+
+            // Loop over the linked list in each bucket
+
+                // Check if empty, else return and step thru list until null
+
+        }
+
+        //return the string
+        return listString;
     }
 }
