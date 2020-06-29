@@ -17,14 +17,14 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @param tableSize The number of Buckets of the table
      */
     public MyHashTable(int tableSize){
-       
+        // TODO: 2020-06-29  
     }
     
     /**
      * constructor. Construct an empty MyHashTable with capacity 10 buckets
      */
     public MyHashTable(){
-       
+        // TODO: 2020-06-29  
     }
     
     /**
@@ -32,14 +32,14 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @return the number of elements in the table
      */
     public int size(){
-       
+       return count;
     }
     
     /**
      * clear the table
      */
     public void clear(){
-       
+        // TODO: 2020-06-29  
     }
     
     /**
@@ -48,7 +48,7 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @return the value that have the key matches the given key. If no such a value, return null
      */
     public V get(K key){
-       
+        // TODO: 2020-06-29  
     }
     
     /**
@@ -57,7 +57,7 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @param value The value of the pair
      */
     public void insert(K key, V value){
-        
+        // TODO: 2020-06-29  
     }
     
     /**
@@ -66,7 +66,7 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @return the value whose key matches the given key. If no such value, null is returned
      */
     public V remove(K key){
-        
+        // TODO: 2020-06-29  
     }
     
     /**
@@ -74,7 +74,10 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @return true if the table holds no elements; false otherwise
      */
     public boolean isEmpty(){
-        
+        if (count == 0)
+            return true;
+        else
+            return false;
     }
     
     /**
@@ -82,6 +85,6 @@ public class MyHashTable<K extends Comparable<K>, V>
      * @return a String representation of the table
      */
     public String toString(){
-       
+        // TODO: 2020-06-29  
     }
 }
