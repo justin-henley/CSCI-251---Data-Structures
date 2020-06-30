@@ -1,3 +1,10 @@
+/**
+ * class MyHashTable implemented using ArrayList
+ * List is filled with dummy nodes pointing to entry nodes
+ * @author Justin Henley
+ * @version 2020-06-30
+ */
+
 
 /**
  * class MyHashTable. A simple HashTable. Handle collision by chain

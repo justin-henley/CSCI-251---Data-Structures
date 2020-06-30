@@ -1,3 +1,8 @@
+/**
+ * @author Justin Henley
+ * @version 2020-06-30
+ */
+
 
 /**
  * class MyHashEntry. A Hash Entry as a single linked list Node
