@@ -30,7 +30,7 @@ public class CSCI251ProjThree
                 System.out.println("(" + key + ", " + value + ") entered");
                 break;
             case 2: 
-                System.out.print("Enter a key that you will remvoe from table: ");
+                System.out.print("Enter a key that you will remove from table: ");
                 key = input.next();
                 value = table.remove(key);
                 if(value != null)

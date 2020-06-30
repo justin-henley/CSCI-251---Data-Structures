@@ -1,0 +1,12 @@
+(CSCI 251) Project Three Implement HashTable
+
+This project is designed to help students to understand the HashTable and algorithms related to HashTable. The students need to implement two given classes: MyHashEntry and MyHashTable. 
+
+Three classes are given. The students shall not modify the CSCI251ProjThree.java file. However, the students should understand this file. The other two files, MyHashEntry.java and MyHashTable.java, are the files that the students need to finish.
+
+These two files, MyHashEntry.java and MyHashTable.java, must be implemented with in the given design. The students cannot change the name of public methods. Please notice that the table must be implemented as generic data structure. 
+
+The students may run the given executable jar file to see how the project should work. When the students run the executable jar file, the students may enter <ID, NAME> pairs. Please notice that ID or Name are all Strings with no white space in it.
+
+Due date: will be announced on blackboard.
+
