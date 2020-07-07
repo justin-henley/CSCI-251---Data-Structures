@@ -29,7 +29,7 @@ public class CSCI251ProjFour
                 System.out.println("The tree is: " + tree);
                 break;
             case 2: 
-                System.out.print("Enter data that you will remvoe from tree: ");
+                System.out.print("Enter data that you will remove from tree: ");
                 data = input.nextInt();
                 if(tree.search(data) == null)
                     System.out.println("No such data in tree");

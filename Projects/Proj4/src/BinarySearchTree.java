@@ -1,12 +1,12 @@
 
 /**
- * BinearySearchTree. Represent a binary search tree
+ * BinarySearchTree. Represent a binary search tree
  * The student cannot change the public interface
  * 
  * @author Your Name
  * @version Date Starts
  */
-public class BinarySearchTree<E extends Comparable<E>>
+public class BinarySearchTree<E extends Comparable<E> >
 {
     TreeNode<E> root; // the root of the tree
     
@@ -26,7 +26,21 @@ public class BinarySearchTree<E extends Comparable<E>>
      *         if no node contains data, return null
      */
     public TreeNode<E> search(E data){
-        // TODO: 2020-07-07  
+        // Set an iterator node to root for traversal
+        TreeNode<E> cur = root;
+
+        // Traverse tree towards target value
+        while (cur != null){
+            // Fix because E extends Comparable<E>
+            int comparison = data.compareTo(cur.getData());
+            if (comparison == 0)
+                return cur;  // Found target
+            else if (comparison < 0)
+                cur = cur.getLeft(); // Search left subtree
+            else
+                cur = cur.getRight();  // Search right subtree
+        }
+        return null;  // Not found
     }
     
     /**
@@ -35,7 +49,42 @@ public class BinarySearchTree<E extends Comparable<E>>
      * @param newNode the given node to be inserted
      */
     public void insert(TreeNode<E> newNode){
-        // TODO: 2020-07-07  
+        // If the tree is empty, insert newNode as root
+        if (root == null){
+            root = newNode;
+            return;  // Finished with insert
+        }
+
+        // If tree is not empty, find the insertion position
+        // Create a traversal node, starting at the root of the tree
+        TreeNode<E> cur = root;
+        // While there is still tree to search, continue searching
+        while (cur != null) {
+            // If the newNode's data is less than the cur's data
+            if (newNode.getData().compareTo(cur.getData()) < 0){
+                // If the left child is empty, insert the new node here
+                if (cur.getLeft() == null) {
+                    cur.setLeft(newNode);
+                    newNode.setParent(cur);
+                    cur = null;  // Allows while loop to exit
+                }
+                // If the left child is not empty, continue traversal at left child
+                else
+                    cur = cur.getLeft();
+            }
+            // If the newNode's data is greater than cur's data
+            else {
+                // If the right child is empty, insert the new node here
+                if (cur.getRight() == null) {
+                    cur.setRight(newNode);
+                    newNode.setParent(cur);
+                    cur = null;  // Allows while loop to exit
+                }
+                // If the right child is not empty, continue traversal at right child
+                else
+                    cur = cur.getRight();
+            }
+        }
     }
     
     /**
@@ -44,17 +93,101 @@ public class BinarySearchTree<E extends Comparable<E>>
      * @param data the given data to be inserted
      */
     public void insert(E data){
-        // TODO: 2020-07-07  
+        // Create the new node
+        TreeNode<E> newNode = new TreeNode<>(data);
+
+        // Call insert(node) function with the new node
+        insert(newNode);
     }
     
     /**
      * remove the given data from this binary search tree and return
      * true. If the data is not in the tree, return false
+     * Requires private functions removeNode, replaceChild
      */
     public boolean remove(E data){
-        // TODO: 2020-07-07  
+        // Find the target node containing the data
+        TreeNode<E> node = search(data);
+        // Remove the found node (If not found, removes null which does nothing)
+        // If the node is removed successfully, removeNode returns true
+        return removeNode(node);
     }
-    
+
+    /**
+     * Recursively finds and removes the target node
+     * Returns true if the node is removed successfully, false otherwise
+     */
+    private boolean removeNode(TreeNode<E> node) {
+        // If node is null, return false (did not remove)
+        if (node == null)
+            return false;
+
+        // Case 1: Internal node with 2 children
+        if (node.getLeft() != null && node.getRight() != null){
+            // Find successor
+            TreeNode<E> succNode = node.getRight();
+            while (succNode.getLeft() != null)
+                succNode = succNode.getLeft();
+
+            // Copy data from succNode to node
+            node.setData(succNode.getData());
+
+            // Recursively remove succNode
+            return removeNode(succNode);  // Since succNode is known to not be null, will return true
+        }
+
+        // Case 2: Root node (with 1 or 0 children)
+        else if (node == root){
+            // If there is a left child, it becomes the root
+            if (node.getLeft() != null)
+                root = node.getLeft();
+            // If there is a right child, it becomes the root, or if null root becomes null
+            else
+                root = node.getRight();
+
+            // Make sure the new root, if non-null, has a null parent
+            if (root != null)
+                root.setParent(null);
+
+            // Return true for completed removal
+            return true;
+        }
+
+        // Case 3: Internal with left child only
+        else if (node.getLeft() != null)
+            // Returns true if successful
+            return replaceChild(node.getParent(), node, node.getLeft());
+
+        // Case 4: Internal with right child only OR leaf
+        else
+            // Returns true if successful
+            return replaceChild(node.getParent(), node, node.getRight());
+    }
+
+    /**
+     * Replaces the current child with the new child, removing the node
+     * Returns true if successful, else false
+     */
+    private boolean replaceChild(TreeNode<E> parent, TreeNode<E> currentChild, TreeNode<E> newChild) {
+        // If the parent does not match the children, return false
+        if (parent.getLeft() != currentChild && parent.getRight() != currentChild)
+            return false;
+
+        // If currentChild is the left child of parent
+        if (parent.getLeft() == currentChild)
+            parent.setLeft(newChild);
+        // If currentChild is the right child of parent
+        else
+            parent.setRight(newChild);
+
+        // If newChild is not null, reset its parent
+        if (newChild != null)
+            newChild.setParent(parent);
+
+        // Reutrn success
+        return true;
+    }
+
     /**
      * return a string representation of the tree
      * @return a String representation of the tree
@@ -83,10 +216,7 @@ public class BinarySearchTree<E extends Comparable<E>>
      */
     public boolean isEmpty(){
         // Tree is empty if root is null
-        if (root == null)
-            return true;
-        else
-            return false;
+        return (root == null);
     }
     
     /**

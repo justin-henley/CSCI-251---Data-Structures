@@ -117,7 +117,7 @@ public class TreeNode<E extends Comparable<E>>
         if (parent == null)
             return false;
         // Return true if this node is the LEFT node of its parent; false otherwise
-        // TODO: 2020-07-07
+        return parent.getLeft() == this;
     }
     
     /**
@@ -130,7 +130,7 @@ public class TreeNode<E extends Comparable<E>>
         if (parent == null)
             return false;
         // Return true if this node is the RIGHT node of its parent; false otherwise
-        // TODO: 2020-07-07
+        return parent.getRight() == this;
     }
     
     /**
@@ -139,10 +139,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public boolean isLeaf(){
        // If the node has no children, it is a leaf
-        if (left == null && right == null)
-            return true;
-        else
-            return false;
+        return (left == null && right == null);
     }
     
     /**
@@ -151,9 +148,6 @@ public class TreeNode<E extends Comparable<E>>
      */
     public boolean isRoot(){
         // If node has no parent, it is the root
-        if (parent == null)
-            return true;
-        else
-            return false;
+        return (parent == null);
     }
 }
