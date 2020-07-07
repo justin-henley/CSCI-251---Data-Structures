@@ -1,0 +1,27 @@
+(CSCI 251) Project Four Implement Binary Search Tree
+
+This project is designed to help students to understand the Binary Search Tree and algorithms related to Binary Search Tree. The students need to implement two given classes: TreeNode and BinarySearchTree. 
+
+Three classes are given. The students shall not modify the CSCI251ProjFour.java file. However, the students should understand this file. The other two files, TreeNode.java and BinarySearchTree.java, are the files that the students need to finish.
+
+These two files, TreeNode.java and BinarySearchTree.java, must be implemented with in the given design. The students cannot change the name of public methods. The students cannot add extra public methods. However, the students may add private methods to make the implementation more clear and easier to read. 
+
+For instance, the toString method will return a String representation of a Binary Search Tree. The best way to do so is using recursive thinking. So the toString method actually is a driver method for private method nodeTravesal (see below). The implementation could be as following:
+
+    public String toString(){
+        return "(" + nodeTravesal(root) + ")";
+    }
+
+    private String nodeTravesal(TreeNode<E> treeNode)
+    {
+        if(treeNode == null)
+            return "-";
+        return treeNode.getData().toString()
+               + "(" + nodeTravesal(treeNode.getLeft())
+               +", " + nodeTravesal(treeNode.getRight()) + ")";
+    }
+   
+The students may run the given executable jar file to see how the project should work.
+
+Due date: will be announced on blackboard.
+
