@@ -17,15 +17,22 @@ public class TreeNode<E extends Comparable<E>>
      */
     public TreeNode()
     {
-        
+        data = null;
+        parent = null;
+        left = null;
+        right = null;
     }
     
     /**
-     * constructor construct a tree node with all node referece null to hold given data
+     * constructor construct a tree node with all node reference null to hold given data
      * @param data The given data of type E
      */
     public TreeNode(E data)
     {
+        this.data = data;
+        parent = null;
+        left = null;
+        right = null;
     }
     
     /**
@@ -34,6 +41,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public void setData(E data)
     {
+        this.data = data;
     }
     
     /**
@@ -42,6 +50,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public E getData()
     {
+        return data;
     }
     
     /**
@@ -50,6 +59,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public void setParent(TreeNode<E> parent)
     {
+        this.parent = parent;
     }
     
     /**
@@ -58,6 +68,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public TreeNode<E> getParent()
     {
+        return parent;
     }
     
     /**
@@ -66,6 +77,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public void setLeft(TreeNode<E> left)
     {
+        this.left = left;
     }
     
     /**
@@ -74,6 +86,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public TreeNode<E> getLeft()
     {
+        return left;
     }
     
     /**
@@ -82,6 +95,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public void setRight(TreeNode<E> right)
     {
+        this.right = right;
     }
     
     /**
@@ -90,6 +104,7 @@ public class TreeNode<E extends Comparable<E>>
      */
     public TreeNode<E> getRight()
     {
+        return right;
     }
     
     /**
@@ -98,7 +113,11 @@ public class TreeNode<E extends Comparable<E>>
      * If this node is root, i.e. it has no parent, it also return false
      */
     public boolean isLeftChild(){
-        
+        // If node is root(has no parent), return null
+        if (parent == null)
+            return false;
+        // Return true if this node is the LEFT node of its parent; false otherwise
+        // TODO: 2020-07-07
     }
     
     /**
@@ -107,7 +126,11 @@ public class TreeNode<E extends Comparable<E>>
      * If this node is root, i.e. it has no parent, it also return false
      */
     public boolean isRightChild(){
-       
+        // If node is root(has no parent), return null
+        if (parent == null)
+            return false;
+        // Return true if this node is the RIGHT node of its parent; false otherwise
+        // TODO: 2020-07-07
     }
     
     /**
@@ -115,7 +138,11 @@ public class TreeNode<E extends Comparable<E>>
      * @return true if this node is a leaf; false otherwise.
      */
     public boolean isLeaf(){
-       
+       // If the node has no children, it is a leaf
+        if (left == null && right == null)
+            return true;
+        else
+            return false;
     }
     
     /**
@@ -123,6 +150,10 @@ public class TreeNode<E extends Comparable<E>>
      * @return true if this node is a root; false otherwise.
      */
     public boolean isRoot(){
-        
+        // If node has no parent, it is the root
+        if (parent == null)
+            return true;
+        else
+            return false;
     }
 }
