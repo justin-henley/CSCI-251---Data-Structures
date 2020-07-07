@@ -2,8 +2,8 @@
 /**
  * class TreeNode. This is a TreeNode. The students should understand the structure of a binary tree node
  * 
- * @author Your Name
- * @version Date Start
+ * @author Justin Henley, jahenley@mail.fhsu.edu, FHSU U2020_CSCI_251_VA
+ * @version 2020/07/07
  */
 public class TreeNode<E extends Comparable<E>>
 {

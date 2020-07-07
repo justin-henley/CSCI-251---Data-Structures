@@ -3,8 +3,8 @@
  * BinarySearchTree. Represent a binary search tree
  * The student cannot change the public interface
  * 
- * @author Your Name
- * @version Date Starts
+ * @author Justin Henley, jahenley@mail.fhsu.edu, FHSU U2020_CSCI_251_VA
+ * @version 2020/07/07
  */
 public class BinarySearchTree<E extends Comparable<E> >
 {
