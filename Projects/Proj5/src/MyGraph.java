@@ -7,8 +7,8 @@
  * be 1. If there is no edge between vertex i to vertex j (i != j), then the entry on row i column j of the 
  * matrix will be Integer.MAX_VALUE
  * 
- * @author Hong Biao Zeng
- * @version Dec 12, 2015
+ * @author Justin Henley, jahenley@mail.fhsu.edu, FHSU U2020_CSCI_251_VA
+ * @version 2020/07/14
  */
 import java.util.*;
 public class MyGraph
@@ -49,8 +49,6 @@ public class MyGraph
      * @return A String that describes the vertices visited in order
      */
     public String bfs(int startVertex){
-        // TODO student implement this
-
         // If startVertex does not exist, return an error message
         if (startVertex < 1 || startVertex > numberOfVertices)
             return "Error: start vertex does not exist.";
@@ -58,7 +56,7 @@ public class MyGraph
         // Create the data structures for BFS processing
         Queue<Integer> frontierQueue = new LinkedList<Integer>();
         Set<Integer> discoveredSet = new HashSet<Integer>();
-        StringBuilder bfsResult = null;  // Builds the return string
+        StringBuilder bfsResult = new StringBuilder();  // Builds the return string
 
         // Initialize the data structures before body
         frontierQueue.add(startVertex);
@@ -71,12 +69,14 @@ public class MyGraph
             // Add currentV to the return string
             bfsResult.append(currentV + ", ");
 
-            // TODO Visit currentV
-            // TODO Visit each vertext adjV adjacent to currentV
-                // TODO if ( adjV is not in discoveredSet )
-                    // todo push adjV to frontierQueue
-                    // todo add adjV to discoveredSet
-
+            // Visit each vertex adjV adjacent to currentV
+            for (int adjV = 1; adjV <= numberOfVertices; adjV++) {
+                if (graph[currentV][adjV] == 1 && !discoveredSet.contains(adjV)) {
+                    // Add adjV to both frontierQueue and discoveredSet
+                    frontierQueue.add(adjV);
+                    discoveredSet.add(adjV);
+                }
+            }
         }
 
         // Return the string representing the BFS result
@@ -128,3 +128,6 @@ public class MyGraph
         return dfsResult.toString();
     }
 }
+
+
+// TODO attach output for program
