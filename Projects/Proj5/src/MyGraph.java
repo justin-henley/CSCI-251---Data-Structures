@@ -52,7 +52,7 @@ public class MyGraph
         // TODO student implement this
 
         // If startVertex does not exist, return an error message
-        if (startVertex < 1 || startVertex >numberOfVertices)
+        if (startVertex < 1 || startVertex > numberOfVertices)
             return "Error: start vertex does not exist.";
 
         // Create the data structures for BFS processing
@@ -87,6 +87,34 @@ public class MyGraph
      * @return An ArrayList of Integer that represents the vertices visited in order
      */
     public String dfs(int startVertex){
-        // the student implement this
+        // TODO the student implement this
+
+        // If startVertex does not exist, return an error message
+        if (startVertex < 1 || startVertex > numberOfVertices)
+            return "Error: start vertex does not exist.";
+
+        // Create the data structures for DFS processing
+        Stack<Integer> dfsStack = new Stack<Integer>();
+        Set<Integer> visitedSet = new HashSet<Integer>();
+        StringBuilder dfsResult = null;  // Builds the return string
+
+        // Initialize dfsStack before main loop
+        dfsStack.push(startVertex);
+
+        // While the stack is not empty, continue search
+        while (!dfsStack.isEmpty()){
+            int currentV = dfsStack.pop();
+
+            // Check if currentV has been visited already, and visit if not
+            if (!visitedSet.contains(currentV)){
+                // Visit currentV
+                // Add currentV to visitedSet
+                // for each vertex adjV adjacent to currentV
+                    // Push adjV to stack
+            }
+        }
+
+        // Return the string representing the DFS result
+        return dfsResult.toString();
     }
 }
