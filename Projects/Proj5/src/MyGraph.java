@@ -8,7 +8,6 @@
  * matrix will be Integer.MAX_VALUE
  * 
  * @author Justin Henley, jahenley@mail.fhsu.edu, FHSU U2020_CSCI_251_VA
- * @version 2020/07/14
  */
 import java.util.*;
 public class MyGraph
@@ -54,8 +53,8 @@ public class MyGraph
             return "Error: start vertex does not exist.";
 
         // Create the data structures for BFS processing
-        Queue<Integer> frontierQueue = new LinkedList<Integer>();
-        Set<Integer> discoveredSet = new HashSet<Integer>();
+        Queue<Integer> frontierQueue = new LinkedList<>();
+        Set<Integer> discoveredSet = new HashSet<>();
         StringBuilder bfsResult = new StringBuilder();  // Builds the return string
 
         // Initialize the data structures before body
@@ -67,7 +66,7 @@ public class MyGraph
             int currentV = frontierQueue.poll();
 
             // Add currentV to the return string
-            bfsResult.append(currentV + ", ");
+            bfsResult.append(currentV).append(", ");
 
             // Visit each vertex adjV adjacent to currentV
             for (int adjV = 1; adjV <= numberOfVertices; adjV++) {
@@ -95,8 +94,8 @@ public class MyGraph
             return "Error: start vertex does not exist.";
 
         // Create the data structures for DFS processing
-        Stack<Integer> dfsStack = new Stack<Integer>();
-        Set<Integer> visitedSet = new HashSet<Integer>();
+        Stack<Integer> dfsStack = new Stack<>();
+        Set<Integer> visitedSet = new HashSet<>();
         StringBuilder dfsResult = new StringBuilder();  // Builds the return string
 
         // Initialize dfsStack before main loop
@@ -109,16 +108,16 @@ public class MyGraph
             // Check if currentV has been visited already, and visit if not
             if (!visitedSet.contains(currentV)){
                 // Add currentV to the return string and visitedSet
-                dfsResult.append(currentV + ", ");
+                dfsResult.append(currentV).append(", ");
                 visitedSet.add(currentV);
 
                 // Visit currentV
                 // Iterate over each vertex in the row for currentV
-                // NOTE: This implementation generates output that matches the provided example program
-                for (int i = numberOfVertices; i >= 1; i--){
-                    if (graph[currentV][i] == 1){
+                // NOTE: This reversed iteration generates output that matches the provided example program
+                for (int adjV = numberOfVertices; adjV >= 1; adjV--){
+                    if (graph[currentV][adjV] == 1){
                         // For each vertex adjV adjacent to currentV, push adjV to dfsStack
-                        dfsStack.push(i);
+                        dfsStack.push(adjV);
                     }
                 }
             }
@@ -130,4 +129,75 @@ public class MyGraph
 }
 
 
-// TODO attach output for program
+// Sample output for program
+/*
+ *********************************
+ *              MENU             *
+ * 1. Enter a graph              *
+ * 2. Breadth First Search       *
+ * 3. Depth First Search         *
+ * 4. Quit                       *
+ ********************************
+ Enter your choice: 1
+ Enter an graph.
+ First enter the number of vertices: 6
+ Enter the matrx reprentation of the graph.
+ If no edge between two vertices, enter 0
+ 0 1 0 0 1 0
+ 1 0 1 0 1 0
+ 0 1 0 1 0 0
+ 0 0 1 0 1 1
+ 1 1 0 1 0 0
+ 0 0 0 1 0 0
+ *********************************
+ *              MENU             *
+ * 1. Enter a graph              *
+ * 2. Breadth First Search       *
+ * 3. Depth First Search         *
+ * 4. Quit                       *
+ ********************************
+ Enter your choice: 2
+ Enter the start vertex: 6
+ The result for BFS is: 6, 4, 3, 5, 2, 1,
+ *********************************
+ *              MENU             *
+ * 1. Enter a graph              *
+ * 2. Breadth First Search       *
+ * 3. Depth First Search         *
+ * 4. Quit                       *
+ ********************************
+ Enter your choice: 3
+ Enter the start vertex: 6
+ The result for DFS is: 6, 4, 3, 2, 1, 5,
+ *********************************
+ *              MENU             *
+ * 1. Enter a graph              *
+ * 2. Breadth First Search       *
+ * 3. Depth First Search         *
+ * 4. Quit                       *
+ ********************************
+ Enter your choice: 2
+ Enter the start vertex: 3
+ The result for BFS is: 3, 2, 4, 1, 5, 6,
+ *********************************
+ *              MENU             *
+ * 1. Enter a graph              *
+ * 2. Breadth First Search       *
+ * 3. Depth First Search         *
+ * 4. Quit                       *
+ ********************************
+ Enter your choice: 3
+ Enter the start vertex: 3
+ The result for DFS is: 3, 2, 1, 5, 4, 6,
+ *********************************
+ *              MENU             *
+ * 1. Enter a graph              *
+ * 2. Breadth First Search       *
+ * 3. Depth First Search         *
+ * 4. Quit                       *
+ ********************************
+ Enter your choice: 4
+ Make sure you run enough test before you turn it in
+
+ Process finished with exit code 0
+*/
