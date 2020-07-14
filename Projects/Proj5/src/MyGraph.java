@@ -67,7 +67,10 @@ public class MyGraph
         // Iterate over the graph
         while (!frontierQueue.isEmpty()){
             int currentV = frontierQueue.poll();
+
+            // Add currentV to the return string
             bfsResult.append(currentV + ", ");
+
             // TODO Visit currentV
             // TODO Visit each vertext adjV adjacent to currentV
                 // TODO if ( adjV is not in discoveredSet )
@@ -87,8 +90,6 @@ public class MyGraph
      * @return An ArrayList of Integer that represents the vertices visited in order
      */
     public String dfs(int startVertex){
-        // TODO the student implement this
-
         // If startVertex does not exist, return an error message
         if (startVertex < 1 || startVertex > numberOfVertices)
             return "Error: start vertex does not exist.";
@@ -96,7 +97,7 @@ public class MyGraph
         // Create the data structures for DFS processing
         Stack<Integer> dfsStack = new Stack<Integer>();
         Set<Integer> visitedSet = new HashSet<Integer>();
-        StringBuilder dfsResult = null;  // Builds the return string
+        StringBuilder dfsResult = new StringBuilder();  // Builds the return string
 
         // Initialize dfsStack before main loop
         dfsStack.push(startVertex);
@@ -107,10 +108,19 @@ public class MyGraph
 
             // Check if currentV has been visited already, and visit if not
             if (!visitedSet.contains(currentV)){
+                // Add currentV to the return string and visitedSet
+                dfsResult.append(currentV + ", ");
+                visitedSet.add(currentV);
+
                 // Visit currentV
-                // Add currentV to visitedSet
-                // for each vertex adjV adjacent to currentV
-                    // Push adjV to stack
+                // Iterate over each vertex in the row for currentV
+                // NOTE: This implementation generates output that matches the provided example program
+                for (int i = numberOfVertices; i >= 1; i--){
+                    if (graph[currentV][i] == 1){
+                        // For each vertex adjV adjacent to currentV, push adjV to dfsStack
+                        dfsStack.push(i);
+                    }
+                }
             }
         }
 
