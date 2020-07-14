@@ -49,7 +49,35 @@ public class MyGraph
      * @return A String that describes the vertices visited in order
      */
     public String bfs(int startVertex){
-        // student implement this
+        // TODO student implement this
+
+        // If startVertex does not exist, return an error message
+        if (startVertex < 1 || startVertex >numberOfVertices)
+            return "Error: start vertex does not exist.";
+
+        // Create the data structures for BFS processing
+        Queue<Integer> frontierQueue = new LinkedList<Integer>();
+        Set<Integer> discoveredSet = new HashSet<Integer>();
+        StringBuilder bfsResult = null;  // Builds the return string
+
+        // Initialize the data structures before body
+        frontierQueue.add(startVertex);
+        discoveredSet.add(startVertex);
+
+        // Iterate over the graph
+        while (!frontierQueue.isEmpty()){
+            int currentV = frontierQueue.poll();
+            bfsResult.append(currentV + ", ");
+            // TODO Visit currentV
+            // TODO Visit each vertext adjV adjacent to currentV
+                // TODO if ( adjV is not in discoveredSet )
+                    // todo push adjV to frontierQueue
+                    // todo add adjV to discoveredSet
+
+        }
+
+        // Return the string representing the BFS result
+        return bfsResult.toString();
     }
     
     /**
