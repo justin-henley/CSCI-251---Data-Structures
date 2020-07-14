@@ -2,9 +2,9 @@
 
 The purpose for this project is to reinforce the students’ knowledge on graph. The students will implement the Breadth First Search and Depth First Search for the graph.
 
-The graph will be a direct weighted graph represented in adjunct matrix form. We assume that all weights are positive integers. The graph will be initialized from keyboard. When the students input the graph of n vertices, the students actually input an n by n matrix. 
+The graph will be a direct weighted graph represented in adjunct matrix form. We assume that ALL WEIGHTS ARE POSITIVE INTEGERS. The graph will be initialized from keyboard. When the students input the graph of n vertices, the students actually input an n by n matrix. 
 
-The matrix represents a simple direct weighted graph. There is no loop at vertex. No more than one edge from one vertex to another vertex. The vertices are numbered as 1, 2, ..., n. The graph with n vertices is represented by an (n+1) by (n+1) matrix with row 0 and column 0 unused. 
+The matrix represents a simple direct weighted graph. There is no loop at vertex. No more than one edge from one vertex to another vertex. The vertices are numbered as 1, 2, ..., n. The graph with n vertices is represented by an (n+1) by (n+1) matrix with row 0 and column 0 unused. ROW AND COLUMN ZERO IS UNUSED
 
 The entry on row i and column j is the weight of edge from vertex i to vertex j. For instance, if there is an edge of weight 8 from vertex i to vertex j (i != j), then entry on row i column j of the matrix will be 8. We assume that all weights are positive integers. If there is no edge from vertex i to vertex j (i != j), then the user will input 0 for the entry on row i column j of the matrix. However, the given code will automatically change that entry to be Integer.MAX_VALUE. 
 
